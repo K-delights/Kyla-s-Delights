@@ -3,161 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kyla’s Delights | Order Form</title>
+  <title>Kyla’s Delights</title>
   <style>
     :root {
-      --accent: #f7b731;
-      --bg: #fff8f0;
-      --text: #333;
-      --radius: 14px;
+      --accent: #f4b400;
+      --bg: #fff7ef;
+      --radius: 12px;
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-    }
+
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: #333;
     }
+
     header {
-      background: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background-color: white;
+      box-shadow: var(--shadow);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     header h1 {
-      font-size: 24px;
       color: var(--accent);
-    }
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: var(--accent);
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
     }
 
-    /* MENU SECTION */
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Product Cards */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .product-item {
       background: white;
       border-radius: var(--radius);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      box-shadow: var(--shadow);
       text-align: center;
-      transition: transform 0.2s ease;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 420px;
     }
-    .product-item:hover {
-      transform: translateY(-4px);
-    }
+
     .product-item img {
       width: 100%;
-      height: 280px; /* Increased height */
-      object-fit: cover; /* Fill without distortion */
+      height: 220px;
+      object-fit: cover; /* ensures image fills the space */
+      object-position: center; /* centers image */
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
       display: block;
     }
+
     .product-item h3 {
       margin: 10px 0 5px;
       font-size: 18px;
       font-weight: 600;
     }
+
     .product-item p {
       padding: 0 10px;
       font-size: 15px;
       margin-bottom: 10px;
     }
+
     .price {
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 15px;
     }
 
-    /* ORDER FORM */
+    /* Order Form */
     form {
       background: white;
       padding: 20px;
       border-radius: var(--radius);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow);
     }
-    label {
+
+    form label {
       display: block;
       margin-top: 10px;
-      font-weight: 500;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: var(--radius);
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-    button {
-      background: var(--accent);
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-      width: 100%;
-    }
-    button:hover {
-      background: #f6a20e;
-    }
-    .total-display {
-      margin-top: 15px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 18px;
-      color: #2c2c2c;
-    }
-    .gcash-info {
-      background: #fffbea;
-      padding: 10px;
-      border-radius: 10px;
-      margin-top: 10px;
-      border: 1px solid #f7e7a8;
-    }
-    .gcash-info a {
-      color: #0078ff;
-      text-decoration: none;
       font-weight: 600;
     }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      margin-top: 5px;
+      font-family: inherit;
+    }
+
+    .calc-btn,
+    button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .calc-btn:hover,
+    button:hover {
+      background-color: #e0a800;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
-      color: #666;
-      margin-top: 40px;
-      border-top: 1px solid #eee;
-      background: #fff;
+      padding: 1.5rem;
+      color: #555;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -171,110 +162,97 @@
     </nav>
   </header>
 
-  <section id="menu">
+  <div class="container" id="menu">
     <h2>Our Sweet Treats</h2>
     <div class="menu-grid">
       <div class="product-item">
-        <img src="munchkins.jpg" alt="Munchkins" />
+        <img src="munchkins.jpg" alt="Munchkins">
         <h3>Munchkins</h3>
         <p>Soft, bite-sized chocolate balls that melt in your mouth.</p>
-        <p class="price">₱5 each</p>
+        <div class="price">₱5 each</div>
       </div>
 
       <div class="product-item">
-        <img src="mango-float.jpg" alt="Mango Float" />
+        <img src="mango-float.jpg" alt="Mango Float">
         <h3>Mango Float</h3>
         <p>Layers of creamy goodness with fresh mangoes and graham crackers.</p>
-        <p class="price">₱100 per tub</p>
+        <div class="price">₱100 per tub</div>
       </div>
 
       <div class="product-item">
-        <img src="oreo-graham.jpg" alt="Oreo Graham" />
+        <img src="oreo-graham.jpg" alt="Oreo Graham">
         <h3>Oreo Graham</h3>
         <p>A sweet twist on a classic favorite — cookies, cream, and graham layers.</p>
-        <p class="price">₱100 per tub</p>
+        <div class="price">₱100 per tub</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="order">
+  <div class="container" id="order">
     <h2>Place Your Order</h2>
     <form action="https://formsubmit.co/ksdelights@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Order from Kyla's Delights Website">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="thankyou.html">
-
       <label>Full Name:</label>
       <input type="text" name="Full Name" required>
 
       <label>Address:</label>
-      <textarea name="Address" rows="2" required></textarea>
+      <input type="text" name="Address" required>
 
       <label>Phone Number:</label>
       <input type="text" name="Phone Number" required>
 
       <label>Additional Notes:</label>
-      <textarea name="Additional Notes" rows="2"></textarea>
+      <textarea name="Additional Notes" rows="3"></textarea>
 
-      <h3 style="margin-top:20px;">Order Details</h3>
       <label>Munchkins (₱5 each):</label>
-      <input type="number" id="munchkins" name="Munchkins Quantity" value="0" min="0">
+      <input type="number" name="Munchkins Quantity" min="0" placeholder="Enter quantity">
 
       <label>Mango Float (₱100 each):</label>
-      <input type="number" id="mango" name="Mango Float Quantity" value="0" min="0">
+      <input type="number" name="Mango Float Quantity" min="0" placeholder="Enter quantity">
 
       <label>Oreo Graham (₱100 each):</label>
-      <input type="number" id="oreo" name="Oreo Graham Quantity" value="0" min="0">
+      <input type="number" name="Oreo Graham Quantity" min="0" placeholder="Enter quantity">
 
-      <label style="margin-top:15px;">Payment Method:</label>
-      <select id="payment" name="Payment Method" required>
-        <option value="">-- Select Payment Option --</option>
-        <option value="GCash">GCash</option>
-        <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+      <button type="button" class="calc-btn" onclick="calculateTotal()">Calculate Total</button>
+      <p id="total" style="font-weight: bold; margin-top: 10px;"></p>
+
+      <label>Payment Option:</label>
+      <select name="Payment Option" id="payment" required onchange="toggleProofLink()">
+        <option value="">Select</option>
+        <option value="GCash">GCash (09728472818)</option>
+        <option value="COD">Cash on Delivery</option>
       </select>
 
-      <div id="gcash-info" class="gcash-info" style="display:none;">
-        <p><strong>GCash Number:</strong> 09728472818</p>
-        <p>After payment, please send your proof of payment via Messenger:</p>
-        <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">📨 Messenger Support</a>
+      <div id="proof-section" style="display: none; margin-top: 10px;">
+        <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">Send proof of payment via Messenger support</a>
       </div>
 
-      <button type="button" onclick="calculateTotal()">Calculate Total</button>
-      <div class="total-display" id="total">Total: ₱0</div>
-
+      <input type="hidden" name="_next" value="thankyou.html">
       <button type="submit">Submit Order</button>
     </form>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">
-      For inquiries, message us at<br>
-      <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">Facebook Messenger</a>
-    </p>
-  </section>
-
-  <footer>© <span id="year"></span> Kyla’s Delights | All Rights Reserved</footer>
+  <footer>
+    <p>© 2025 Kyla’s Delights. All rights reserved.</p>
+  </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
     function calculateTotal() {
-      const munchkins = parseInt(document.getElementById('munchkins').value) || 0;
-      const mango = parseInt(document.getElementById('mango').value) || 0;
-      const oreo = parseInt(document.getElementById('oreo').value) || 0;
-      const total = (munchkins * 5) + (mango * 100) + (oreo * 100);
-      document.getElementById('total').textContent = `Total: ₱${total}`;
+      const munchkins = parseInt(document.querySelector('[name="Munchkins Quantity"]').value) || 0;
+      const mango = parseInt(document.querySelector('[name="Mango Float Quantity"]').value) || 0;
+      const oreo = parseInt(document.querySelector('[name="Oreo Graham Quantity"]').value) || 0;
+
+      const total = munchkins * 5 + mango * 100 + oreo * 100;
+      document.getElementById('total').textContent = "Total: ₱" + total;
     }
 
-    document.getElementById('payment').addEventListener('change', function() {
-      const gcashBox = document.getElementById('gcash-info');
-      gcashBox.style.display = (this.value === 'GCash') ? 'block' : 'none';
-    });
+    function toggleProofLink() {
+      const payment = document.getElementById("payment").value;
+      document.getElementById("proof-section").style.display = payment === "GCash" ? "block" : "none";
+    }
   </script>
 </body>
 </html>
+
 
 
 
