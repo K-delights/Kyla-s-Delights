@@ -5,72 +5,240 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K’s Delights | Order Form</title>
   <style>
-    :root { --accent: #f7b731; --bg: #fff8f0; --text: #333; --radius: 14px; }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Poppins", sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; }
-    header { background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; position: sticky; top: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-size: 24px; color: var(--accent); }
-    nav a { margin-left: 15px; text-decoration: none; color: var(--text); font-weight: 500; }
-    nav a:hover { color: var(--accent); }
-    section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    h2 { text-align: center; margin-bottom: 20px; }
-    form { background: white; padding: 20px; border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    label { display: block; margin-top: 10px; font-weight: 500; }
-    input, textarea, select { width: 100%; padding: 10px; margin-top: 5px; border-radius: var(--radius); border: 1px solid #ccc; font-size: 16px; }
-    button { background: var(--accent); color: white; padding: 12px; border: none; border-radius: var(--radius); font-size: 16px; cursor: pointer; margin-top: 15px; width: 100%; }
-    button:hover { background: #f6a20e; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .product-item { background: white; border-radius: var(--radius); box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px; text-align: center; }
-    .product-item img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius); margin-bottom: 10px; }
-    .price { font-weight: 600; color: var(--accent); }
-    .total-display { margin-top: 15px; text-align: center; font-weight: bold; font-size: 18px; color: #2c2c2c; }
-    .gcash-info { background: #fffbea; padding: 10px; border-radius: 10px; margin-top: 10px; border: 1px solid #f7e7a8; }
-    .gcash-info a { color: #0078ff; text-decoration: none; font-weight: 600; }
-    footer { text-align: center; padding: 20px; color: #666; margin-top: 40px; border-top: 1px solid #eee; background: #fff; }
+    :root {
+      --accent: #f7b731;
+      --bg: #fff8f0;
+      --text: #333;
+      --radius: 14px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 24px;
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      width: 100%;
+    }
+    button:hover {
+      background: #f6a20e;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-item {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+    }
+    .product-item img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .total-display {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      color: #2c2c2c;
+    }
+    .gcash-info {
+      background: #fffbea;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid #f7e7a8;
+    }
+    .gcash-info a {
+      color: #0078ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+      background: #fff;
+    }
   </style>
 </head>
 <body>
-  <header><h1>K’s Delights</h1>
-    <nav><a href="#menu">Menu</a><a href="#order">Order</a><a href="#contact">Contact</a></nav>
+  <header>
+    <h1>K’s Delights</h1>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
-  <section id="menu"><h2>Our Sweet Treats</h2>
+
+  <section id="menu">
+    <h2>Our Sweet Treats</h2>
     <div class="menu-grid">
-      <div class="product-item"><img src="images/munchkins.jpg" alt="Munchkins"><h3>Munchkins</h3><p>Soft, bite-sized chocolate balls that melt in your mouth.</p><p class="price">₱5 each</p></div>
-      <div class="product-item"><img src="images/mango-float.jpg" alt="Mango Float"><h3>Mango Float</h3><p>Layers of creamy goodness with fresh mangoes and graham crackers.</p><p class="price">₱100 per tub</p></div>
-      <div class="product-item"><img src="images/oreo-graham.jpg" alt="Oreo Graham"><h3>Oreo Graham</h3><p>A sweet twist on a classic favorite — cookies, cream, and graham layers.</p><p class="price">₱100 per tub</p></div>
+      <div class="product-item">
+        <img src="images/munchkins.jpg" alt="Munchkins" />
+        <h3>Munchkins</h3>
+        <p>Soft, bite-sized chocolate balls that melt in your mouth.</p>
+        <p class="price">₱5 each</p>
+      </div>
+
+      <div class="product-item">
+        <img src="images/mango-float.jpg" alt="Mango Float" />
+        <h3>Mango Float</h3>
+        <p>Layers of creamy goodness with fresh mangoes and graham crackers.</p>
+        <p class="price">₱100 per tub</p>
+      </div>
+
+      <div class="product-item">
+        <img src="images/oreo-graham.jpg" alt="Oreo Graham" />
+        <h3>Oreo Graham</h3>
+        <p>A sweet twist on a classic favorite — cookies, cream, and graham layers.</p>
+        <p class="price">₱100 per tub</p>
+      </div>
     </div>
   </section>
-  <section id="order"><h2>Place Your Order</h2>
+
+  <section id="order">
+    <h2>Place Your Order</h2>
     <form action="https://formsubmit.co/ksdelights@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="New Order from K's Delights Website">
-      <input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="thankyou.html">
-      <label>Full Name:</label><input type="text" name="Full Name" required>
-      <label>Address:</label><textarea name="Address" rows="2" required></textarea>
-      <label>Phone Number:</label><input type="text" name="Phone Number" required>
-      <label>Additional Notes:</label><textarea name="Additional Notes" rows="2"></textarea>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Order from K's Delights Website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="thankyou.html">
+
+      <label>Full Name:</label>
+      <input type="text" name="Full Name" required>
+
+      <label>Address:</label>
+      <textarea name="Address" rows="2" required></textarea>
+
+      <label>Phone Number:</label>
+      <input type="text" name="Phone Number" required>
+
+      <label>Additional Notes:</label>
+      <textarea name="Additional Notes" rows="2"></textarea>
+
       <h3 style="margin-top:20px;">Order Details</h3>
-      <label>Munchkins (₱5 each):</label><input type="number" id="munchkins" name="Munchkins Quantity" value="0" min="0">
-      <label>Mango Float (₱100 each):</label><input type="number" id="mango" name="Mango Float Quantity" value="0" min="0">
-      <label>Oreo Graham (₱100 each):</label><input type="number" id="oreo" name="Oreo Graham Quantity" value="0" min="0">
+      <label>Munchkins (₱5 each):</label>
+      <input type="number" id="munchkins" name="Munchkins Quantity" value="0" min="0">
+
+      <label>Mango Float (₱100 each):</label>
+      <input type="number" id="mango" name="Mango Float Quantity" value="0" min="0">
+
+      <label>Oreo Graham (₱100 each):</label>
+      <input type="number" id="oreo" name="Oreo Graham Quantity" value="0" min="0">
+
       <label style="margin-top:15px;">Payment Method:</label>
       <select id="payment" name="Payment Method" required>
-        <option value="">-- Select Payment Option --</option><option value="GCash">GCash</option><option value="Cash on Delivery">Cash on Delivery (COD)</option>
+        <option value="">-- Select Payment Option --</option>
+        <option value="GCash">GCash</option>
+        <option value="Cash on Delivery">Cash on Delivery (COD)</option>
       </select>
+
       <div id="gcash-info" class="gcash-info" style="display:none;">
         <p><strong>GCash Number:</strong> 09728472818</p>
         <p>After payment, please send your proof of payment via Messenger:</p>
         <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">📨 Messenger Support</a>
       </div>
-      <button type="button" onclick="calculateTotal()">Calculate Total</button><div class="total-display" id="total">Total: ₱0</div>
+
+      <button type="button" onclick="calculateTotal()">Calculate Total</button>
+      <div class="total-display" id="total">Total: ₱0</div>
+
       <button type="submit">Submit Order</button>
     </form>
   </section>
-  <section id="contact"><h2>Contact Us</h2><p style="text-align:center;">For inquiries, message us at<br>
-      <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">Facebook Messenger</a></p></section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+      For inquiries, message us at<br>
+      <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">Facebook Messenger</a>
+    </p>
+  </section>
+
   <footer>© <span id="year"></span> K’s Delights | All Rights Reserved</footer>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
     function calculateTotal() {
       const munchkins = parseInt(document.getElementById('munchkins').value) || 0;
       const mango = parseInt(document.getElementById('mango').value) || 0;
@@ -78,6 +246,7 @@
       const total = (munchkins * 5) + (mango * 100) + (oreo * 100);
       document.getElementById('total').textContent = `Total: ₱${total}`;
     }
+
     document.getElementById('payment').addEventListener('change', function() {
       const gcashBox = document.getElementById('gcash-info');
       gcashBox.style.display = (this.value === 'GCash') ? 'block' : 'none';
@@ -85,3 +254,4 @@
   </script>
 </body>
 </html>
+
