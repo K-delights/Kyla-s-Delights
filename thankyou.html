@@ -1,52 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You | K’s Delights</title>
   <style>
-    body {
+    :root {
+      --accent: #f7b731;
+      --bg: #fff8f0;
+      --text: #333;
+      --radius: 14px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       font-family: "Poppins", sans-serif;
-      background: #fff8f0;
-      color: #333;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: bold;
+    }
+    main {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
-    h1 {
-      color: #f7b731;
-      font-size: 36px;
+    .thankyou-card {
+      background: white;
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+    .thankyou-card h1 {
+      color: var(--accent);
+      font-size: 28px;
       margin-bottom: 10px;
     }
-    p {
+    .thankyou-card p {
       font-size: 18px;
-      max-width: 600px;
+      color: #555;
+      margin-bottom: 20px;
     }
-    a {
-      margin-top: 20px;
+    .thankyou-card a {
       display: inline-block;
-      background: #f7b731;
+      background: var(--accent);
       color: white;
-      padding: 12px 24px;
-      border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      transition: background 0.3s;
     }
-    a:hover {
+    .thankyou-card a:hover {
       background: #f6a20e;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      border-top: 1px solid #eee;
+      background: #fff;
     }
   </style>
 </head>
 <body>
-  <h1>Thank You for Your Order! 🎉</h1>
-  <p>Your order has been successfully submitted to K’s Delights.<br>
-  We’ll review it and contact you soon to confirm.</p>
-  <p>If you chose <strong>GCash</strong>, please send your proof of payment here:</p>
-  <a href="https://www.facebook.com/jan.michael.alvarez.2025/" target="_blank">📨 Send Proof via Messenger</a>
-  <a href="index.html" style="margin-top: 30px;">← Back to Home</a>
+  <header>K’s Delights</header>
+
+  <main>
+    <div class="thankyou-card">
+      <h1>Thank You! 🎉</h1>
+      <p>Your order has been successfully submitted.</p>
+      <p>We’ll review your order and contact you shortly for confirmation.</p>
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> K’s Delights | All Rights Reserved</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
